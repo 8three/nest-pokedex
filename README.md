@@ -13,7 +13,7 @@
 npm i -g @nestjs/cli
 ``` 
 
-4. Levantar la base de datos
+4. Levantar la base de datos. Estamos apuntando al puerto **27087** 
 
 ```
 docker-compose up -d
