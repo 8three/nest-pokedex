@@ -12,7 +12,7 @@ import { MongooseModule } from '@nestjs/mongoose';
 
     MongooseModule.forRoot('mongodb://localhost:27087/nest-pokemon'),
 
-    PokemonModule
+    PokemonModule,
   ],
   controllers: [],
   providers: [],
