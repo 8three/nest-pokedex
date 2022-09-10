@@ -1,7 +1,7 @@
 import { Injectable, InternalServerErrorException } from '@nestjs/common';
 import { InjectModel } from '@nestjs/mongoose';
-import axios, { AxiosInstance } from 'axios';
 import { Model } from 'mongoose';
+import { AxiosAdapter } from '../common/adapters/axios.adapter';
 import { CreatePokemonDto } from '../pokemon/dto/create-pokemon.dto';
 import { Pokemon } from '../pokemon/entities/pokemon.entity';
 import { PokeResponse } from './interfaces/poke-response.interfaces';
@@ -11,12 +11,13 @@ export class SeedService {
   
   constructor(
     @InjectModel(Pokemon.name)
-    private readonly pokemonModel: Model<Pokemon>
+    private readonly pokemonModel: Model<Pokemon>,
+    private readonly http: AxiosAdapter
   ) {}
-  private readonly axios: AxiosInstance = axios;
 
   async executetdSeed() {
-    const { data } = await this.axios.get<PokeResponse>('https://pokeapi.co/api/v2/pokemon?limit=650');
+    const data  = await this.http.get<PokeResponse>('https://pokeapi.co/api/v2/pokemon?limit=650');
+    
     try {
       await this.pokemonModel.deleteMany({});
       const pokemons: CreatePokemonDto[] = [];
