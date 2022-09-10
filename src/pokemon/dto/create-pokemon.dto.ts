@@ -1,4 +1,4 @@
-import { IsInt, IsPositive, IsString, Min, MinLength } from "class-validator";
+import { IsInt, IsPositive, IsString, isURL, Min, MinLength } from "class-validator";
 
 export class CreatePokemonDto {
 
@@ -10,4 +10,7 @@ export class CreatePokemonDto {
     @IsString()
     @MinLength(2)
     name: string;
+
+    @IsString()
+    url: string;
 }
