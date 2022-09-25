@@ -10,7 +10,7 @@
 ```
 3. Tener Nest CLI instalado
 ```
-npm i -g @nestjs/cli
+npm i -g @nestjs/cliππ
 ``` 
 
 4. Levantar la base de datos. Estamos apuntando al puerto **27087** 
@@ -28,6 +28,15 @@ yarn start:dev
 8. Reconstruir la base de datos con la semilla
 ```
 http://localhost:3000/api/v2/seed
+```
+
+
+## Producction build
+1. Crear el archivo ```.env.prod```
+2. Llenar las variables de entorno de prod
+3. Crear la nueva imagen
+```
+docker-compose -f docker-compose.prod.yaml --env-file .env.prod up --build
 ```
 
 ## Stack usado

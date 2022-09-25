@@ -22,7 +22,7 @@ export class SeedService {
       await this.pokemonModel.deleteMany({});
       const pokemons: CreatePokemonDto[] = [];
       data.results.forEach(({name, url}) => {
-        const segments = url. split('/');
+        const segments = url.split('/');
         const no = +segments[segments.length -2];
         const pokemonDto: CreatePokemonDto= { no, name };
         pokemons.push(pokemonDto);

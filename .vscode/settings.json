@@ -1,3 +1,5 @@
 {
-    "typescript.preferences.importModuleSpecifier": "relative"
+    "typescript.preferences.importModuleSpecifier": "relative",
+    "editor.fontFamily": "'Fira Code'",
+    "editor.fontLigatures": true,
 }
